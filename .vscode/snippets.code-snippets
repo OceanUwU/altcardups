@@ -1,0 +1,47 @@
+{
+	"Alternate Upgrade": {
+		"scope": "java",
+		"isFileTemplate": true,
+		"body": [
+"package altcardups.upgrades;",
+"",
+"import com.megacrit.cardcrawl.cards.AbstractCard;",
+"",
+"public class $TM_FILENAME_BASE extends AbstractAlternateUpgrade {",
+"    public $TM_FILENAME_BASE() {",
+"        super(com.megacrit.cardcrawl.cards.$0.class);",
+"    }",
+"    ",
+"    public void up(AbstractCard c) {",
+"        ",
+"    }",
+"}"
+		]
+	},
+	"Alternate Upgrade [Overrides use()]": {
+		"scope": "java",
+		"isFileTemplate": true,
+		"body": [
+"package altcardups.upgrades;",
+"",
+"import altcardups.upgrades.interfaces.UseOverride;",
+"import com.megacrit.cardcrawl.cards.AbstractCard;",
+"import com.megacrit.cardcrawl.characters.AbstractPlayer;",
+"import com.megacrit.cardcrawl.monsters.AbstractMonster;",
+"",
+"public class $TM_FILENAME_BASE extends AbstractAlternateUpgrade implements UseOverride {",
+"    public $TM_FILENAME_BASE() {",
+"        super(com.megacrit.cardcrawl.cards.$0.class);",
+"    }",
+"    ",
+"    public void up(AbstractCard c) {",
+"        ",
+"    }",
+"    ",
+"    public void use(AbstractCard c, AbstractPlayer p, AbstractMonster m) {
+"        ",
+"    }",
+"}"
+		]
+	}
+}

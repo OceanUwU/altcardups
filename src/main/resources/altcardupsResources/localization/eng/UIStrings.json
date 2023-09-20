@@ -1,0 +1,19 @@
+{
+    "altcardups:badge": {
+        "TEXT": [
+            "Alternate Card Upgrades",
+            "ocean",
+            "Gives you some alternate card upgrades to choose from! Must be configured."
+        ]
+    },
+
+    "altcardups:configMenu": {
+        "TEXT": [
+            "Click to enable!",
+            "Card",
+            "Default+",
+            "Alternate+",
+            "Done"
+        ]
+    }
+}
