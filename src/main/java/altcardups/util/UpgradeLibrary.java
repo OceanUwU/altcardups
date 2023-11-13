@@ -4,12 +4,12 @@ import altcardups.AltUpsMod;
 import altcardups.upgrades.*;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Properties;
 
 public class UpgradeLibrary {
-    public static HashMap<Class<? extends AbstractCard>, AbstractAlternateUpgrade> altUpgrades = new HashMap<>();
-    public static HashMap<Class<? extends AbstractCard>, Boolean> enabled = new HashMap<>();
+    public static LinkedHashMap<Class<? extends AbstractCard>, AbstractAlternateUpgrade> altUpgrades = new LinkedHashMap<>();
+    public static LinkedHashMap<Class<? extends AbstractCard>, Boolean> enabled = new LinkedHashMap<>();
     public static boolean forceOff = false;
     public static boolean forceOn = false;
     public static SpireConfig config;
@@ -38,6 +38,10 @@ public class UpgradeLibrary {
         add(new Seek());
         add(new Claw());
         add(new Strike_Red());
+        add(new Distraction());
+        add(new Bash());
+        add(new Armaments());
+        add(new BodySlam());
     }
 
     public static void initializeConfig() {

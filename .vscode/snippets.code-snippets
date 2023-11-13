@@ -15,7 +15,8 @@
 "    public void up(AbstractCard c) {",
 "        ",
 "    }",
-"}"
+"}",
+"add(new $TM_FILENAME_BASE());"
 		]
 	},
 	"Alternate Upgrade [Overrides use()]": {
@@ -41,7 +42,8 @@
 "    public void use(AbstractCard c, AbstractPlayer p, AbstractMonster m) {
 "        ",
 "    }",
-"}"
+"}",
+"add(new $TM_FILENAME_BASE());"
 		]
 	}
 }

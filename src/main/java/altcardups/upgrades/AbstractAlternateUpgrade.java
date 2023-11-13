@@ -10,9 +10,12 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import static altcardups.AltUpsMod.makeID;
 
 public abstract class AbstractAlternateUpgrade {
+    public static boolean ignorePatches;
+
     public Class<? extends AbstractCard> cardClass;
     public String ID;
     private CardStrings cardStrings;
+    private CardStrings originalCardStrings;
 
     public AbstractAlternateUpgrade(Class<? extends AbstractCard> cardClass) {
         this.cardClass = cardClass;
@@ -33,8 +36,24 @@ public abstract class AbstractAlternateUpgrade {
         ReflectionHacks.privateMethod(AbstractCard.class, "upgradeMagicNumber", int.class).invoke(c, by);
     }
 
+    protected void setDamage(AbstractCard c, int to) {
+        c.baseDamage = to;
+    }
+
+    protected void setBlock(AbstractCard c, int to) {
+        c.baseBlock = to;
+    }
+
+    protected void setMagic(AbstractCard c, int to) {
+        c.baseMagicNumber = c.magicNumber = to;
+    }
+
     protected void uDesc(AbstractCard c) {
-        c.rawDescription = loadStrings().DESCRIPTION;
+        setDesc(c, loadStrings().DESCRIPTION);
+    }
+
+    protected void setDesc(AbstractCard c, String desc) {
+        c.rawDescription = desc;
         c.initializeDescription();
     }
     
@@ -42,9 +61,19 @@ public abstract class AbstractAlternateUpgrade {
         AbstractDungeon.actionManager.addToBottom(action);
     }
 
+    protected void ignorePatch() {
+        ignorePatches = true;
+    }
+
     protected CardStrings loadStrings() {
         if (cardStrings == null)
             cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
         return cardStrings;
+    }
+
+    protected CardStrings origStrings() {
+        if (originalCardStrings == null)
+            originalCardStrings = ReflectionHacks.getPrivateStatic(cardClass, "cardStrings");
+        return originalCardStrings;
     }
 }

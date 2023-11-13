@@ -13,7 +13,9 @@
             "Card",
             "Default+",
             "Alternate+",
-            "Done"
+            "Done",
+            "Enable All",
+            "Disable All"
         ]
     }
 }

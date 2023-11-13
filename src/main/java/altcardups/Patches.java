@@ -1,11 +1,11 @@
 package altcardups;
 
 import altcardups.upgrades.AbstractAlternateUpgrade;
-import altcardups.upgrades.interfaces.UseOverride;
-import altcardups.util.UpgradeLibrary;
+import altcardups.upgrades.interfaces.*;
 import basemod.ReflectionHacks;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
+import com.evacipated.cardcrawl.modthespire.patcher.PatchingException;
 import com.evacipated.cardcrawl.modthespire.patcher.PrefixPatchInfo;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -14,39 +14,72 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import javassist.ClassPool;
 import javassist.CtBehavior;
 import javassist.CtClass;
-import javassist.CtMethod;
+import javassist.NotFoundException;
+
+import static altcardups.util.UpgradeLibrary.*;
 
 @SpirePatch(clz=CardCrawlGame.class, method=SpirePatch.CONSTRUCTOR)
 public class Patches {
-    public static void Raw(CtBehavior ctBehavior) throws Exception {
+    private static CtClass patchesClass;
+
+    public static void Raw(CtBehavior ctBehavior) throws PatchingException, NotFoundException {
         System.out.println("");
         AltUpsMod.logger.info("Patching...");
-        UpgradeLibrary.initialize();
+        initialize();
         ClassPool pool = ctBehavior.getDeclaringClass().getClassPool();
-        CtClass patchesClass = pool.getCtClass(Patches.class.getName());
-        CtMethod upgradeMethod = patchesClass.getDeclaredMethod("upgradeCard");
-        CtMethod useMethod = patchesClass.getDeclaredMethod("useCard");
-        for (AbstractAlternateUpgrade up : UpgradeLibrary.altUpgrades.values()) {
+        patchesClass = pool.getCtClass(Patches.class.getName());
+        for (AbstractAlternateUpgrade up : altUpgrades.values()) {
             CtClass cardClass = pool.getCtClass(up.cardClass.getName());
-            new PrefixPatchInfo(cardClass.getDeclaredMethod("upgrade"), upgradeMethod).doPatch();
-            if (up instanceof UseOverride)
-                new PrefixPatchInfo(cardClass.getDeclaredMethod("use"), useMethod).doPatch();
+            patch(cardClass, "upgrade");
+            patch(cardClass, "use", UseOverride.class, up);
+            patch(cardClass, "applyPowers", ApplyPowersOverride.class, up);
+            patch(cardClass, "calculateCardDamage", CalculateCardDamageOverride.class, up);
+            patch(cardClass, "onMoveToDiscard", OnMoveToDiscardOverride.class, up);
         }
         AltUpsMod.logger.info("Done!");
     }
 
-    public static SpireReturn<Void> upgradeCard(AbstractCard c) {
-        if (!c.upgraded && UpgradeLibrary.usesAlt(c)) {
+    private static void patch(CtClass cardClass, String methodName, Class<?> interfaceCheck, AbstractAlternateUpgrade up) throws PatchingException, NotFoundException {
+        if (interfaceCheck.isInstance(up))
+            patch(cardClass, methodName);
+    }
+
+    private static void patch(CtClass cardClass, String methodName) throws PatchingException, NotFoundException {
+        new PrefixPatchInfo(cardClass.getDeclaredMethod(methodName), patchesClass.getDeclaredMethod(methodName)).doPatch();
+    }
+
+    public static SpireReturn<Void> upgrade(AbstractCard c) {
+        if (!c.upgraded && usesAlt(c)) {
             ReflectionHacks.privateMethod(AbstractCard.class, "upgradeName").invoke(c);
-            UpgradeLibrary.getAlt(c).up(c);
+            getAlt(c).up(c);
             return SpireReturn.Return();
         }
         return SpireReturn.Continue();
     }
 
-    public static SpireReturn<Void> useCard(AbstractCard c, AbstractPlayer p, AbstractMonster m) {
-        if (UpgradeLibrary.isAltUpgraded(c)) {
-            ((UseOverride)UpgradeLibrary.getAlt(c)).use(c, p, m);
+    public static SpireReturn<Void> use(AbstractCard c, AbstractPlayer p, AbstractMonster m) {
+        return ifAlt(c, () -> ((UseOverride)getAlt(c)).use(c, p, m));
+    }
+
+    public static SpireReturn<Void> applyPowers(AbstractCard c) {
+        return ifAlt(c, () -> ((ApplyPowersOverride)getAlt(c)).applyPowers(c));
+    }
+
+    public static SpireReturn<Void> calculateCardDamage(AbstractCard c, AbstractMonster m) {
+        return ifAlt(c, () -> ((CalculateCardDamageOverride)getAlt(c)).calculateCardDamage(c, m));
+    }
+
+    public static SpireReturn<Void> onMoveToDiscard(AbstractCard c) {
+        return ifAlt(c, () -> ((OnMoveToDiscardOverride)getAlt(c)).onMoveToDiscard(c));
+    }
+
+    private static SpireReturn<Void> ifAlt(AbstractCard c, Runnable func) {
+        if (AbstractAlternateUpgrade.ignorePatches) {
+            AbstractAlternateUpgrade.ignorePatches = false;
+            return SpireReturn.Continue();
+        }
+        if (isAltUpgraded(c)) {
+            func.run();
             return SpireReturn.Return();
         }
         return SpireReturn.Continue();

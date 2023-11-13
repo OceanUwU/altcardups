@@ -72,7 +72,7 @@ public class ConfigMenu {
                 public void scrolledUsingBar(float percent) {
                     target_scroll = MAX_SCROLL * percent;
                 }
-            }, Settings.WIDTH / 2f + SPACE_X * Settings.xScale * 2, Settings.HEIGHT / 2f - 70f * Settings.yScale, Settings.HEIGHT - 250f * Settings.yScale);
+            }, Settings.WIDTH / 2f + SPACE_X * Settings.xScale * 2, Settings.HEIGHT / 2f - 60f * Settings.yScale, Settings.HEIGHT - 300f * Settings.yScale);
         } catch (Exception e) {
             e.printStackTrace();
         }

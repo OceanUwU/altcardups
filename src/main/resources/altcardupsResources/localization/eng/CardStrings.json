@@ -1,6 +1,12 @@
 {
     "altcardups:Strike_Red": {"NAME":"","DESCRIPTION":
         "Deal !D! damage twice."},
+    "altcardups:Distraction": {"NAME":"","DESCRIPTION":
+        "Add !M! random Skills into your hand. NL They cost 0 this turn. NL Exhaust."},
     "altcardups:Seek": {"NAME":"","DESCRIPTION":
-        "Put !M! card from your draw pile into your hand."}
+        "Put !M! card from your draw pile into your hand."},
+    "altcardups:Armaments": {"NAME":"","DESCRIPTION":
+        "Gain !B! Block. NL Upgrade !M! cards in your hand for the rest of combat."},
+    "altcardups:BodySlam": {"NAME":"","DESCRIPTION":
+        "Gain !B! Block. NL Deal damage equal to your Block."}
 }
