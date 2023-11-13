@@ -42,6 +42,9 @@ public class UpgradeLibrary {
         add(new Bash());
         add(new Armaments());
         add(new BodySlam());
+        add(new Crescendo());
+        add(new Tranquility());
+        add(new SadisticNature());
     }
 
     public static void initializeConfig() {

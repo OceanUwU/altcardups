@@ -8,5 +8,11 @@
     "altcardups:Armaments": {"NAME":"","DESCRIPTION":
         "Gain !B! Block. NL Upgrade !M! cards in your hand for the rest of combat."},
     "altcardups:BodySlam": {"NAME":"","DESCRIPTION":
-        "Gain !B! Block. NL Deal damage equal to your Block."}
+        "Gain !B! Block. NL Deal damage equal to your Block."},
+    "altcardups:Crescendo": {"NAME":"","DESCRIPTION":
+        "Retain. NL Enter Wrath."},
+    "altcardups:Tranquility": {"NAME":"","DESCRIPTION":
+        "Retain. NL Enter Calm."},
+    "altcardups:SadisticNature": {"NAME":"","DESCRIPTION":
+    "Innate. NL Whenever you apply a debuff to an enemy, they take !M! damage."}
 }
