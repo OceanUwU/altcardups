@@ -16,5 +16,7 @@
     "altcardups:SadisticNature": {"NAME":"","DESCRIPTION":
     "Innate. NL Whenever you apply a debuff to an enemy, they take !M! damage."},
     "altcardups:Flex": {"NAME":"","DESCRIPTION":
-    "Gain !M! Strength. At the end of this turn, lose 1 Strength."}
+    "Gain !M! Strength. NL At the end of this turn, lose 1 Strength."},
+    "altcardups:PommelStrike": {"NAME":"","DESCRIPTION":
+    "Deal !D! damage. NL Draw !M! cards."}
 }
