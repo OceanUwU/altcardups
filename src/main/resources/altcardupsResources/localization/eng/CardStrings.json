@@ -14,5 +14,7 @@
     "altcardups:Tranquility": {"NAME":"","DESCRIPTION":
         "Retain. NL Enter Calm."},
     "altcardups:SadisticNature": {"NAME":"","DESCRIPTION":
-    "Innate. NL Whenever you apply a debuff to an enemy, they take !M! damage."}
+    "Innate. NL Whenever you apply a debuff to an enemy, they take !M! damage."},
+    "altcardups:Flex": {"NAME":"","DESCRIPTION":
+    "Gain !M! Strength. At the end of this turn, lose 1 Strength."}
 }

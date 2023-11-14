@@ -45,6 +45,7 @@ public class UpgradeLibrary {
         add(new Crescendo());
         add(new Tranquility());
         add(new SadisticNature());
+        add(new Flex());
     }
 
     public static void initializeConfig() {
