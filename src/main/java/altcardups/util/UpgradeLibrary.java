@@ -46,6 +46,8 @@ public class UpgradeLibrary {
         add(new Tranquility());
         add(new SadisticNature());
         add(new Flex());
+        add(new PommelStrike());
+        add(new ShrugItOff());
     }
 
     public static void initializeConfig() {
