@@ -18,5 +18,7 @@
     "altcardups:Flex": {"NAME":"","DESCRIPTION":
     "Gain !M! Strength. NL At the end of this turn, lose 1 Strength."},
     "altcardups:PommelStrike": {"NAME":"","DESCRIPTION":
-    "Deal !D! damage. NL Draw !M! cards."}
+    "Deal !D! damage. NL Draw !M! card."},
+    "altcardups:ShrugItOff": {"NAME":"","DESCRIPTION":
+    "Gain !B! Block. NL Draw 2 cards."}
 }
