@@ -3,18 +3,21 @@
         "Deal !D! damage. NL Your next Attack deals !M! additional damage."},
     "altcardups:Defend_Watcher": {"NAME":"","DESCRIPTION":
         "Retain. NL Gain !B! Block."},
+
     "altcardups:Defend_Blue": {"NAME":"","DESCRIPTION":
         "Gain !B! Block. NL Channel !M! Frost."},
     "altcardups:Dualcast": {"NAME":"","DESCRIPTION":
         "Evoke your next orb !M! times."},
     "altcardups:Zap": {"NAME":"","DESCRIPTION":
         "Channel !M! Lightning."},
+
     "altcardups:Strike_Green": {"NAME":"","DESCRIPTION":
         "Gain !B! Block. NL Deal !D! damage."},
     "altcardups:Defend_Green": {"NAME":"","DESCRIPTION":
         "Gain !B! Block. NL Add a *Shiv to your hand."},
     "altcardups:Survivor": {"NAME":"","DESCRIPTION":
         "Gain !B! Block. NL You may discard 1 card to draw 1 card."},
+
     "altcardups:Strike_Red": {"NAME":"","DESCRIPTION":
         "Deal !D! damage !M! times."},
     "altcardups:Defend_Red": {"NAME":"","DESCRIPTION":
@@ -37,5 +40,7 @@
     "altcardups:Flex": {"NAME":"","DESCRIPTION":
         "Gain !M! Strength. NL At the end of this turn, lose 1 Strength."},
     "altcardups:ShrugItOff": {"NAME":"","DESCRIPTION":
-        "Gain !B! Block. NL Draw !M! cards."}
+        "Gain !B! Block. NL Draw !M! cards."},
+    "altcardups:SearingBlow": {"NAME":"","DESCRIPTION":
+    "Deal !D! damage !M! times. NL Can be Upgraded any number of times."}
 }

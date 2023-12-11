@@ -62,7 +62,7 @@ public abstract class AbstractAlternateUpgrade {
     }
 
     protected void setCost(AbstractCard c, int to) {
-        c.cost = to;
+        ReflectionHacks.privateMethod(AbstractCard.class, "upgradeBaseCost", int.class).invoke(c, to);
     }
     
     protected void atb(AbstractGameAction action) {

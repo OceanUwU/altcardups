@@ -1,14 +1,12 @@
 package altcardups.util;
 
 import altcardups.AltUpsMod;
-import altcardups.upgrades.*;
-import altcardups.upgrades.Colorless.SadisticNature;
-import altcardups.upgrades.Defect.Claw;
-import altcardups.upgrades.Defect.Seek;
+import altcardups.upgrades.AbstractAlternateUpgrade;
+import altcardups.upgrades.Colorless.*;
 import altcardups.upgrades.Ironclad.*;
-import altcardups.upgrades.Silent.Distraction;
-import altcardups.upgrades.Watcher.Crescendo;
-import altcardups.upgrades.Watcher.Tranquility;
+import altcardups.upgrades.Silent.*;
+import altcardups.upgrades.Defect.*;
+import altcardups.upgrades.Watcher.*;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import java.util.LinkedHashMap;
@@ -42,11 +40,24 @@ public class UpgradeLibrary {
     public static void initialize() {
         altUpgrades.clear();
         enabled.clear();
+        add(new Strike_Red());
+        add(new Defend_Red());
+        add(new Bash());
+        add(new Strike_Green());
+        add(new Defend_Green());
+        add(new Neutralize());
+        add(new Survivor());
+        add(new Strike_Blue());
+        add(new Defend_Blue());
+        add(new Zap());
+        add(new Dualcast());
+        add(new Strike_Purple());
+        add(new Defend_Watcher());
+        add(new Eruption());
+        add(new Vigilance());
         add(new Seek());
         add(new Claw());
-        add(new Strike_Red());
         add(new Distraction());
-        add(new Bash());
         add(new Armaments());
         add(new BodySlam());
         add(new Crescendo());
@@ -55,6 +66,7 @@ public class UpgradeLibrary {
         add(new Flex());
         add(new PommelStrike());
         add(new ShrugItOff());
+        add(new SearingBlow());
     }
 
     public static void initializeConfig() {

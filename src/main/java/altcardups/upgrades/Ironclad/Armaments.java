@@ -20,7 +20,6 @@ public class Armaments extends AbstractAlternateUpgrade implements UseOverride {
     }
     
     public void use(AbstractCard c, AbstractPlayer p, AbstractMonster m) {
-        c.use(p, m);
         atb(new GainBlockAction(p, p, c.block));
         for (int i = 0; i < c.magicNumber; i++)
             atb(new ArmamentsAction(false));

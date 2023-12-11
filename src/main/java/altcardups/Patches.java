@@ -49,7 +49,7 @@ public class Patches {
     }
 
     public static SpireReturn<Void> upgrade(AbstractCard c) {
-        if (!c.upgraded && usesAlt(c)) {
+        if (c.canUpgrade() && usesAlt(c)) {
             ReflectionHacks.privateMethod(AbstractCard.class, "upgradeName").invoke(c);
             getAlt(c).up(c);
             return SpireReturn.Return();
