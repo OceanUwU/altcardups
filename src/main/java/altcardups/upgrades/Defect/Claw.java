@@ -1,5 +1,6 @@
-package altcardups.upgrades;
+package altcardups.upgrades.Defect;
 
+import altcardups.upgrades.AbstractAlternateUpgrade;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 
 public class Claw extends AbstractAlternateUpgrade {

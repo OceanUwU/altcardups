@@ -1,5 +1,6 @@
-package altcardups.upgrades;
+package altcardups.upgrades.Silent;
 
+import altcardups.upgrades.AbstractAlternateUpgrade;
 import altcardups.upgrades.interfaces.UseOverride;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;

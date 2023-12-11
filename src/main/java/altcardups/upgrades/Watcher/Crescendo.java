@@ -1,5 +1,6 @@
-package altcardups.upgrades;
+package altcardups.upgrades.Watcher;
 
+import altcardups.upgrades.AbstractAlternateUpgrade;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 
 public class Crescendo extends AbstractAlternateUpgrade {

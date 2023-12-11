@@ -1,5 +1,6 @@
-package altcardups.upgrades;
+package altcardups.upgrades.Ironclad;
 
+import altcardups.upgrades.AbstractAlternateUpgrade;
 import altcardups.upgrades.interfaces.UseOverride;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -21,7 +22,7 @@ public class PommelStrike extends AbstractAlternateUpgrade implements UseOverrid
     }
 
     public void use(AbstractCard c, AbstractPlayer p, AbstractMonster m) {
-        atb(new DamageAction(m, new DamageInfo(p, c.damage, c.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+        dmg(c, m, AbstractGameAction.AttackEffect.SLASH_DIAGONAL);
         atb(new DrawCardAction(1));
     }
 }

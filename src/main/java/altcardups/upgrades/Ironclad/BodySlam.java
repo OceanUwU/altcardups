@@ -1,5 +1,6 @@
-package altcardups.upgrades;
+package altcardups.upgrades.Ironclad;
 
+import altcardups.upgrades.AbstractAlternateUpgrade;
 import altcardups.upgrades.interfaces.ApplyPowersOverride;
 import altcardups.upgrades.interfaces.CalculateCardDamageOverride;
 import altcardups.upgrades.interfaces.OnMoveToDiscardOverride;

@@ -1,5 +1,6 @@
-package altcardups.upgrades;
+package altcardups.upgrades.Ironclad;
 
+import altcardups.upgrades.AbstractAlternateUpgrade;
 import altcardups.upgrades.interfaces.UseOverride;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -16,12 +17,11 @@ public class ShrugItOff extends AbstractAlternateUpgrade implements UseOverride 
     }
     
     public void up(AbstractCard c) {
-        uBlock(c, 1);
         uDesc(c);
     }
 
     public void use(AbstractCard c, AbstractPlayer p, AbstractMonster m) {
-        atb(new GainBlockAction(p, c.block));
+        blck(c);
         atb(new DrawCardAction(2));
     }
 }

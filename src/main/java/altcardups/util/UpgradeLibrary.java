@@ -2,6 +2,13 @@ package altcardups.util;
 
 import altcardups.AltUpsMod;
 import altcardups.upgrades.*;
+import altcardups.upgrades.Colorless.SadisticNature;
+import altcardups.upgrades.Defect.Claw;
+import altcardups.upgrades.Defect.Seek;
+import altcardups.upgrades.Ironclad.*;
+import altcardups.upgrades.Silent.Distraction;
+import altcardups.upgrades.Watcher.Crescendo;
+import altcardups.upgrades.Watcher.Tranquility;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import java.util.LinkedHashMap;

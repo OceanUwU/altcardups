@@ -1,5 +1,6 @@
-package altcardups.upgrades;
+package altcardups.upgrades.Ironclad;
 
+import altcardups.upgrades.AbstractAlternateUpgrade;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 
 public class Bash extends AbstractAlternateUpgrade {

@@ -2,10 +2,14 @@ package altcardups.upgrades;
 
 import basemod.ReflectionHacks;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static altcardups.AltUpsMod.makeID;
 
@@ -56,9 +60,19 @@ public abstract class AbstractAlternateUpgrade {
         c.rawDescription = desc;
         c.initializeDescription();
     }
+
+    protected void setCost(AbstractCard c, int to) {
+        c.cost = to;
+    }
     
     protected void atb(AbstractGameAction action) {
         AbstractDungeon.actionManager.addToBottom(action);
+    }
+    protected void dmg(AbstractCard c, AbstractMonster m, AbstractGameAction.AttackEffect e){
+        atb(new DamageAction(m, new DamageInfo(AbstractDungeon.player, c.damage, DamageInfo.DamageType.NORMAL), e));
+    }
+    protected void blck(AbstractCard c){
+        atb(new GainBlockAction(AbstractDungeon.player, c.block));
     }
 
     protected void ignorePatch() {
