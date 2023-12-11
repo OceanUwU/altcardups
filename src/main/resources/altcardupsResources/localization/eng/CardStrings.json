@@ -1,24 +1,25 @@
 {
     "altcardups:Strike_Purple": {"NAME":"","DESCRIPTION":
         "Deal !D! damage. NL Your next Attack deals !M! additional damage."},
-    "altcardups:Strike_Green": {"NAME":"","DESCRIPTION":
-        "Gain !B! Block. NL Deal !D! damage."},
-    "altcardups:Strike_Red": {"NAME":"","DESCRIPTION":
-        "Deal !D! damage !M! times."},
     "altcardups:Defend_Watcher": {"NAME":"","DESCRIPTION":
         "Retain. NL Gain !B! Block."},
     "altcardups:Defend_Blue": {"NAME":"","DESCRIPTION":
         "Gain !B! Block. NL Channel !M! Frost."},
+    "altcardups:Dualcast": {"NAME":"","DESCRIPTION":
+        "Evoke your next orb !M! times."},
+    "altcardups:Zap": {"NAME":"","DESCRIPTION":
+        "Channel !M! Lightning."},
+    "altcardups:Strike_Green": {"NAME":"","DESCRIPTION":
+        "Gain !B! Block. NL Deal !D! damage."},
     "altcardups:Defend_Green": {"NAME":"","DESCRIPTION":
         "Gain !B! Block. NL Add a *Shiv to your hand."},
+    "altcardups:Survivor": {"NAME":"","DESCRIPTION":
+        "Gain !B! Block. NL You may discard 1 card to draw 1 card."},
+    "altcardups:Strike_Red": {"NAME":"","DESCRIPTION":
+        "Deal !D! damage !M! times."},
     "altcardups:Defend_Red": {"NAME":"","DESCRIPTION":
         "Gain !B! Block. NL Exhaust."},
-    "altcardups:Dualcast": {"NAME":"","DESCRIPTION":
-    "Evoke your next orb !M! times."},
-    "altcardups:Zap": {"NAME":"","DESCRIPTION":
-    "Channel !M! Lightning."},
-    "altcardups:Survivor": {"NAME":"","DESCRIPTION":
-    "Gain !B! Block. NL You may discard 1 card to draw 1 card."},
+
     "altcardups:Distraction": {"NAME":"","DESCRIPTION":
         "Add !M! random Skills into your hand. NL They cost 0 this turn. NL Exhaust."},
     "altcardups:Seek": {"NAME":"","DESCRIPTION":
@@ -35,8 +36,6 @@
         "Innate. NL Whenever you apply a debuff to an enemy, they take !M! damage."},
     "altcardups:Flex": {"NAME":"","DESCRIPTION":
         "Gain !M! Strength. NL At the end of this turn, lose 1 Strength."},
-    "altcardups:PommelStrike": {"NAME":"","DESCRIPTION":
-    "Deal !D! damage. NL Draw !M! card."},
     "altcardups:ShrugItOff": {"NAME":"","DESCRIPTION":
         "Gain !B! Block. NL Draw !M! cards."}
 }
